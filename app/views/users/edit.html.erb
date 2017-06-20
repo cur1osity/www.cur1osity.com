@@ -1,0 +1,63 @@
+<% provide(:title, "Edit user") %>
+
+<div id="update_user">
+
+<h2>Update your profile</h2>
+
+<br>
+
+ <div class="row">
+    
+  <%= form_for(@user) do |f| %>
+
+   <div class="col-md-6 col-md-offset-3">
+    
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: "This field is obligatory!", class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: "Min. 6 characters...", class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Password confirmation" %>
+      <%= f.password_field :password_confirmation, placeholder: "Re-enter your password", class: 'form-control' %>
+     
+    <% if @user.picture.blank? %>
+
+      <p id="file-field"> <b> Change <em><a href="https://en.gravatar.com/connect" target="_blank">gravatar</a></em> to custom image <b></p>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>
+
+     <div class="gravatar_edit">
+      
+      <%= gravatar_for @user %>
+
+     </div>
+
+   <% else %>
+
+    <div class="avatar">
+
+     <%= image_tag @user.picture.url(:big) if @user.picture? && !@user.name.blank? %>
+
+    </div>
+
+     <% if !@user.name.blank? %>
+
+      <%= f.label :remove_picture, class: "checkbox inline user_avatar" do %>
+      <%= f.check_box :remove_picture %> <span>Remove avatar?</span>
+
+      <% end %>
+    <% end %>
+  <% end %>
+
+  </div>
+
+  <div class="col-md-6 col-md-offset-3">
+    <%= f.submit "Save changes", class: "btn btn-primary edit_user" %>
+  </div> 
+
+ <% end %>
+
+ </div>
+</div>
