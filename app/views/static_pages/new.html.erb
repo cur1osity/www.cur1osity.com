@@ -178,7 +178,11 @@
       <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
     </div>
 
-  
+  <div class="col-md-6">
+
+    <%= recaptcha_tags if Rails.env.production? %>
+
+    </div>
 
         <div class="col-md-offset-2 col-md-4">
       <%= f.submit 'Send message', :class=> "btn btn-primary" %>
