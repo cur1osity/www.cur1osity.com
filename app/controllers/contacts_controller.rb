@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
     @contact.request = request
 
     if verify_recaptcha(model: @contact) && @contact.save
-      @contact.deliver
+      @contact.deliver_now 
       redirect_to root_url
       flash[:success] = 'Thank you for your message. We will contact you soon!'
 
