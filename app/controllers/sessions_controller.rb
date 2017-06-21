@@ -1,10 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    @user = User.new
-     if logged_in? 
-       redirect_to root_url # disable log in form after log in action 
-     end
+   redirect_to root_url  
   end
 
   def create
@@ -22,14 +19,12 @@ class SessionsController < ApplicationController
       end
     else
        if user.nil?
-
-        flash.now[:danger] = "Account doesn't exist - please sign up."
-        render 'new'
+        redirect_to root_url
+        flash[:danger] = "Account doesn't exist - please sign up."
       
        else
-
-        flash.now[:danger] = 'Invalid password - please try again.'
-        render 'new'
+        redirect_to root_url
+        flash[:danger] = 'Invalid password - please try again.' 
      end
     end
   end
