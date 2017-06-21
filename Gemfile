@@ -25,6 +25,7 @@ group :development, :test do
   gem 'byebug',  '9.0.0', platform: :mri
   gem 'irbtools', '~> 2.1'
   gem 'awesome_print', '~> 1.7'
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
 group :development do

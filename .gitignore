@@ -23,3 +23,7 @@
 
 # Ignore Spring files.
 /spring/*.pid
+
+# ignore dotenv
+
+.env

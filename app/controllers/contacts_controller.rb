@@ -4,11 +4,11 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(params[:contact])
+    @contact = Contact.new(contacts_params)
     @contact.request = request
 
-    if verify_recaptcha(model: @contact) && @contact.save
-      @contact.deliver
+   # if verify_recaptcha(model: @contact)
+   if @contact.deliver
       redirect_to root_url
       flash[:success] = 'Thank you for your message. We will contact you soon!'
 
@@ -19,6 +19,13 @@ class ContactsController < ApplicationController
 
     end
   end
+
+  private
+
+def contacts_params
+    params.require(:contact).permit(:name, :email, :message, :nickname)
+  end
+
 end
 
 
