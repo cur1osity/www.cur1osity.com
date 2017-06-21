@@ -4,12 +4,15 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= render 'layouts/rails_default' %>
     <%= render 'layouts/shim' %>
+
+ 
   </head>
    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="150">
 
  <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
          <% end %>
+
  
  <% if logged_in? %>
 
@@ -35,6 +38,18 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right navbar-custom">
+
+
+  <script>
+     var canvas = document.getElementById("canvas"); 
+     var ctx = canvas.getContext("2d");
+     ctx.font = "100 40px Ruge Boogie"; 
+     ctx.fillStyle = 'black';
+     ctx.fillText("</   >", 0, 40);
+     ctx.font = "100 46px Ruge Boogie";
+     ctx.fillStyle = 'red';
+     ctx.fillText("?", 37, 40);
+  </script>
 
       <% if current_page?(root_path) %>
   
@@ -70,18 +85,6 @@
  <% end %>
 
     </div>
-
-
-<script>
-var canvas = document.getElementById("canvas"); 
-var ctx = canvas.getContext("2d");
-  ctx.font = "100 40px Ruge Boogie"; 
-  ctx.fillStyle = 'black';
-  ctx.fillText("</   >", 0, 40);
-  ctx.font = "100 46px Ruge Boogie";
-  ctx.fillStyle = 'red';
-  ctx.fillText("?", 37, 40);
-</script>
 
   </body>
 </html>
