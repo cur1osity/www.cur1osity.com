@@ -199,6 +199,7 @@ padding: 5px !important;
   color: black !important;
 }
 
+
 /* Main Page */
 
 #home {
@@ -257,6 +258,18 @@ padding: 5px !important;
   a:hover {
     color: #FF5733;
     text-decoration: none;
+  } 
+}
+
+.forgot_link {
+ 
+ color: #FF5733;
+
+  &:link, a:visited {
+    color: #FF5733;
+  }
+  &:hover {
+    color: #FF5733;
   } 
 }
 
