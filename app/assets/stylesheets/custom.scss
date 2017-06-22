@@ -30,24 +30,9 @@ body {
       padding: 40px 120px;
       }
 
-/*  contact form */
- .containerX {   
-      margin: auto;
-      margin-top: 0px;
-      margin-bottom: 10px;
-      padding: 40px 120px;
-      width: 100%;
+.containerZ {   
+      padding: 20px 200px;
       }
-
-
- .containerY {   
-      margin: auto;
-      margin-top: 0px;
-      margin-bottom: 10px;
-      padding: 20px 120px;
-      width: 100%;
-      }
-
 
 #captcha {
 padding-top: 20px;
@@ -200,11 +185,12 @@ padding: 5px !important;
       font-weight: 300 !important;
 }
 
-  .navbar-nav li a:hover, .navbar-nav li.active a {
+.navbar-nav li a:hover, .navbar-nav li.active a {
       color: white !important;
-      background-color: #FF5733 !important;
-  }
-  .navbar-default .navbar-toggle {
+      background-color: #FF5733 !important; 
+  } 
+
+.navbar-default .navbar-toggle {
       border-color: transparent;
       color: #fff !important;
   }
@@ -266,7 +252,7 @@ padding: 5px !important;
   color: grey;
 
   a:link, a:visited {
-    color: grey;;
+    color: grey;
   }
   a:hover {
     color: #FF5733;
@@ -274,18 +260,14 @@ padding: 5px !important;
   } 
 }
 
-
-
-
-
 /* forms */
 
 #log_in {
 
  background-color: #fbfbfb;
  margin: auto;
- padding-top:30px;
- padding-bottom:30px;
+ padding-top:20px;
+ padding-bottom:20px;
 }
 
 #log_in h2 {
@@ -449,13 +431,6 @@ aside {
   font-weight: 400;
 }
 
-/*
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-*/
-
 #view_my_profile a {
   color: gray;
  &:hover {
@@ -547,8 +522,37 @@ input {
     overflow: auto;
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
+   a { 
+    color: grey;
+    }
+   a:hover {
+    text-decoration: none;
+    color: #FF5733;
+   } 
   }
 }
+
+.pagination a {
+
+border: none !important;
+margin: auto !important;
+
+&:link, &:visited {  
+color: #FF5733 !important;
+
+  }
+
+&:hover {  
+background-color: #FF5733 !important;
+color: white !important;
+  } 
+}
+
+.pagination .active a {
+background-color: #FF5733 !important;
+color: white !important;
+}
+
 
 /* Micropost index */
 
@@ -643,7 +647,7 @@ span.picture {
   font-weight: 300;
 }
 
-#user_index h2 {
+.user_index h2 {
   font-size: 1.5em;
   background-color: #FF5733;
   color: white;
@@ -662,6 +666,7 @@ span.picture {
   color: white;
   padding: 10px 10px;
   position: relative;
+  margin: auto;
   margin-bottom: 20px;
   width: 200px;
   border-radius: 5px;
