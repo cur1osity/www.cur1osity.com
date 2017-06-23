@@ -12,9 +12,8 @@ class UsersShowTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
-  test "should display user when activated" do
+  test "should redirect to root_url when activated" do
     get user_path(@activated_user)
-    assert_template 'users/show'
-    assert_response :success
+    assert_redirected_to root_url
   end
 end

@@ -8,13 +8,12 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
 
   test "login with invalid information" do
-    get login_path
-    assert_template 'sessions/new'
+    get root_path
+    assert_template 'static_pages/new'
     post login_path, params: { session: { email: "", password: "" } }
-    assert_template 'sessions/new'
+    assert_redirected_to root_path
     assert_not flash.empty?
     get root_path
-    assert flash.empty? # tutaj testujemy flasha czy zniknie na home-page
   end
 
    test "login with valid information followed by logout" do
@@ -22,9 +21,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: { email:    @user.email,
                                           password: 'password' } }
     assert is_logged_in?
-    assert_redirected_to @user
+    assert_redirected_to root_path
     follow_redirect!
-    assert_template 'users/show'
+    assert_template 'static_pages/new'
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path
     # assert_select "a[href=?]", user_path(@user)
@@ -34,7 +33,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     # Simulate a user clicking logout in a second window.
     delete logout_path
     follow_redirect!
-    assert_select "a[href=?]", login_path
     assert_select "a[href=?]", logout_path,      count: 0
     assert_select "a[href=?]", user_path(@user), count: 0
   end
