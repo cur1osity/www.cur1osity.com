@@ -14,6 +14,7 @@
   <div class="col-md-8">
     <% if @user.microposts.any? %>
     <div id="user_microposts">
+    <br>
       <h2>Microposts (<%= @user.microposts.count %>)</h2>
       <ol class="microposts">
         <%= render @microposts %>
@@ -21,6 +22,7 @@
       <%= will_paginate @microposts %>
       <%else %>
       <div id="user_microposts">
+      <br>
       <h2>Microposts</h2>
       </div>
     <% end %>
