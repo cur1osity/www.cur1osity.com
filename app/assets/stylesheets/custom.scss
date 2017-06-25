@@ -85,7 +85,7 @@ section {
   background-color:  #FF3300   !important;
 }
 
-.btn-basic,  {
+.btn-basic  {
     background-color:  #a3a3a3  !important;
     color: white;
     border: none !important;
@@ -282,85 +282,8 @@ padding: 5px !important;
   } 
 }
 
-/* forms */
-
-#log_in {
-
- background-color: #fbfbfb;
- margin: auto;
- padding-top:20px;
- padding-bottom:20px;
-}
-
-#log_in h2 {
-  font-size: 1.5em;
-  background-color: #FF5733;
-  color: white;
-  padding: 10px 10px;
-  position: relative;
-  margin:auto;
-  width: 100px;
-  border-radius: 5px;
-  font-weight: 300;
-}
-
-#log_in_2 {
- padding-top: 30px;
- background-color: white;
- margin: auto;
-}
-
-#log_in_2 h2 {
-  font-size: 1.5em;
-  background-color: #FF5733;
-  color: white;
-  padding: 10px 10px;
-  position: relative;
-  margin:auto;
-  width: 100px;
-  border-radius: 5px;
-  font-weight: 300;
-}
-
-#forgot_pass {
- padding-top: 30px;
- background-color: white;
- margin: auto;
-}
-
-#forgot_pass h2 {
-  font-size: 1.5em;
-  background-color: #FF5733;
-  color: white;
-  padding: 10px 10px;
-  position: relative;
-  margin:auto;
-  width: 200px;
-  border-radius: 5px;
-  font-weight: 300;
-}
-
-#reset_pass {
- padding-top: 30px;
- background-color: white;
- margin: auto;
-}
-
-#reset_pass h2 {
-  font-size: 1.5em;
-  background-color: #FF5733;
-  color: white;
-  padding: 10px 10px;
-  position: relative;
-  margin:auto;
-  width: 200px;
-  border-radius: 5px;
-  font-weight: 300;
-}
-
 
 /* universal */
-
 
 section {
   overflow: auto;
@@ -535,6 +458,63 @@ input {
   resize: none;
 }
 
+#log_in {
+
+ background-color: #fbfbfb;
+ margin: auto;
+ padding-top:20px;
+ padding-bottom:20px;
+
+ h2 {
+
+  font-size: 1.5em;
+  background-color: #FF5733;
+  color: white;
+  padding: 10px 10px;
+  position: relative;
+  margin:auto;
+  width: 100px;
+  border-radius: 5px;
+  font-weight: 300; 
+ }
+}  
+
+#log_in_2 {
+ padding-top: 30px;
+ background-color: white;
+ margin: auto;
+
+ h2 {
+  font-size: 1.5em;
+  background-color: #FF5733;
+  color: white;
+  padding: 10px 10px;
+  position: relative;
+  margin:auto;
+  width: 100px;
+  border-radius: 5px;
+  font-weight: 300;
+ }
+}
+
+#pass {
+ padding-top: 30px;
+ background-color: white;
+ margin: auto;
+}
+
+#pass h2 {
+  font-size: 1.5em;
+  background-color: #FF5733;
+  color: white;
+  padding: 10px 10px;
+  position: relative;
+  margin:auto;
+  width: 200px;
+  border-radius: 5px;
+  font-weight: 300;
+}
+
 /* Users index */
 
 .users {
@@ -656,7 +636,7 @@ span.picture {
 
  /* after log in */
  
-#feed h2 {
+.title h2 {
   font-size: 1.5em;
   background-color: #FF5733;
   color: white;
@@ -665,56 +645,6 @@ span.picture {
   margin:auto;
   margin-bottom: 20px;
   width: 200px;
-  border-radius: 5px;
-  font-weight: 300;
-}
-
-.user_index h2 {
-  font-size: 1.5em;
-  background-color: #FF5733;
-  color: white;
-  padding: 10px 10px;
-  position: relative;
-  margin: auto;
-  margin-bottom: 20px;
-  width: 200px;
-  border-radius: 5px;
-  font-weight: 300;
-}
-
-#user_microposts h2 {
-  font-size: 1.5em;
-  background-color: #FF5733;
-  color: white;
-  padding: 10px 10px;
-  position: relative;
-  margin: auto;
-  margin-bottom: 20px;
-  width: 200px;
-  border-radius: 5px;
-  font-weight: 300;
-}
-
-#update_user h2 {
-  font-size: 1.5em;
-  background-color: #FF5733;
-  color: white;
-  padding: 10px 10px;
-  position: relative;
-  margin: auto;
-  margin-bottom: 20px;
-  width: 200px;
-  border-radius: 5px;
-  font-weight: 300;
-}
-
-#title h2 {
-  background-color: #FF5733;
-  font-size: 1.5em;
-  color: white;
-  padding: 10px 10px;
-  position: relative;
-  width: 120px;
   border-radius: 5px;
   font-weight: 300;
 }
@@ -731,9 +661,6 @@ margin-top: 0;
   a:link, a:visited {
     color: #FF5733;
   }
- /* a:hover {
-    color:black;
-  } */
 }
 
 /* checkbox */

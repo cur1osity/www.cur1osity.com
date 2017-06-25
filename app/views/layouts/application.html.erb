@@ -50,11 +50,6 @@
         <li><%= link_to "Contact", '#contact' %></li>
         <li><%= link_to "Sign up", signup_path %></li>
 
-      <% elsif current_page?(signup_path) %>
-
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Log in", login_path %></li>
-
       <% else %>
 
         <li><%= link_to "Home", root_path %></li>
