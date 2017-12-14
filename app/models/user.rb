@@ -11,6 +11,7 @@ class User < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validate  :picture_size
   attr_accessor :remember_token, :activation_token, :reset_token
+  before_validation :ensure_token
   before_save   :downcase_email
   before_create :create_activation_digest
   validates :name,  presence: true, length: { maximum: 25 }
@@ -114,6 +115,16 @@ class User < ApplicationRecord
       self.activation_digest = User.digest(activation_token)
     end
 
+     def ensure_token
+      self.token = generate_hex(:token) unless token.present?
+    end
+
+    def generate_hex(column)
+      loop do
+        hex = SecureRandom.hex
+        break hex unless self.class.where(column => hex).any?
+      end
+    end
 
     # Validates the size of an uploaded picture.
     def picture_size
