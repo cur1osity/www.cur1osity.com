@@ -23,8 +23,6 @@ gem "recaptcha", require: "recaptcha/rails"
 group :development, :test do
   gem 'sqlite3', '1.3.12'
   gem 'byebug',  '9.0.0', platform: :mri
-#  gem 'irbtools', '~> 2.1'
-#  gem 'awesome_print', '~> 1.7'
   gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
