@@ -1,7 +1,8 @@
 class Api::V1::SessionSerializer < Api::V1::BaseSerializer
   type :session
 
-  attributes :email, :token, :user_id
+ # attributes :email, :token, :user_id
+  attributes :email, :user_id
 
   has_one :user, serializer: Api::V1::UserSerializer do
     link(:self) {api_v1_user_path(object.id)}
