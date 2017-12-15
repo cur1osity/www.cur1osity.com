@@ -19,8 +19,8 @@ module SampleApp
    # config.middleware.insert_before 0, Rack::Cors do
     config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
-        origins '*'
-        resource '*', headers: :any, methods: [
+        origins 'www.google.pl'
+        resource 'www.google.pl', headers: :any, methods: [
           :get, :post, :put, :patch, :delete, :options, :head
         ]
       end
