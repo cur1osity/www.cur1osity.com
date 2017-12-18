@@ -56,7 +56,9 @@ class Api::V1::MicropostsController < Api::V1::BaseController
     def load_resource
       case params[:action].to_sym
       when :index
-        @microposts = paginate(apply_filters(Micropost.all, params))
+        @microposts = Micropost.all
+
+     #    @microposts = paginate(apply_filters(Micropost.all, params))
       when :create
         @micropost = Micropost.new(create_params)
       when :show, :update, :destroy

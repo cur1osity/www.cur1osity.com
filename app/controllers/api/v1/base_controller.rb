@@ -26,7 +26,9 @@ class Api::V1::BaseController < ActionController::API
       @current_user
     end
 
+
     def authenticate_user
+      
       token, options = ActionController::HttpAuthentication::Token.token_and_options(
         request
       )
@@ -34,12 +36,13 @@ class Api::V1::BaseController < ActionController::API
       return nil unless token && options.is_a?(Hash)
 
       user = User.find_by(email: options['email'])
-      if user && ActiveSupport::SecurityUtils.secure_compare(user.token, token)
+      if user && user.api_token_authenticated?(user.token_digest, token)
         @current_user = user
       else
         return nil
       end
     end
+
 
     def authenticate_user!
       authenticate_user or raise UnauthenticatedError
@@ -71,23 +74,23 @@ class Api::V1::BaseController < ActionController::API
       api_error(status: 422, errors: errors)
     end
 
-    def paginate(resource)
-      default_per_page = Rails.application.secrets.default_per_page || 25
+  #  def paginate(resource)
+  #    default_per_page = Rails.application.secrets.default_per_page || 25
 
-      resource.paginate({
-        page: params[:page] || 1, per_page: params[:per_page] || default_per_page
-      })
-    end
+  #    resource.paginate({
+  #      page: params[:page] || 1, per_page: params[:per_page] || default_per_page
+  #    })
+  #  end
 
     #expects paginated resource!
     def meta_attributes(resource, extra_meta = {})
 
       meta = {
-        current_page: resource.current_page,
-        next_page: resource.next_page,
-        prev_page: resource.previous_page,
-        total_pages: resource.total_pages,
-        total_count: resource.total_entries
+  #      current_page: resource.current_page,
+  #      next_page: resource.next_page,
+  #      prev_page: resource.previous_page,
+  #      total_pages: resource.total_pages,
+  #      total_count: resource.total_entries
       }.merge(extra_meta)
 
       return meta

@@ -35,9 +35,12 @@ class Api::V1::FollowingsController < Api::V1::BaseController
   def load_resource
     case params[:action].to_sym
     when :index
-      @followings = paginate(
-        apply_filters(User.find(params[:user_id]).following, params)
-      )
+   #   @followings = paginate(
+   #     apply_filters(User.find(params[:user_id]).following, params)
+   #   )
+
+      @followings = User.find(params[:user_id]).following
+
     when :create
       @relationship = Relationship.new(
         follower_id: params[:user_id],

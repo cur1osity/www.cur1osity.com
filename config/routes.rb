@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   post   '/',        to: 'microposts#create' 
-  get    '/contacts', to: 'contacts#new'    
+  get    '/contacts', to: 'contacts#new'
+  get     '/api_token', to: 'api_token#create'         
   resources :users do
     member do
       get :following, :followers
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
   resources :contacts, only: [:new, :create]
+
 
 #api
   namespace :api do
@@ -35,3 +37,4 @@ Rails.application.routes.draw do
     end
   end
 end
+

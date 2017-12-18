@@ -65,7 +65,8 @@ class Api::V1::UsersController < Api::V1::BaseController
     def load_resource
       case params[:action].to_sym
       when :index
-        @users = paginate(apply_filters(User.all, params))
+        @users = User.all
+     #   @users = paginate(apply_filters(User.all, params))
       when :create
         @user = User.new(create_params)
       when :show, :update, :destroy

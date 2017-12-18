@@ -10,4 +10,9 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Password reset"
   end
 
+  def api_token(user)
+    @user = user
+    mail to: user.email, subject: "API-token for cur1osity.com"
+  end
+
 end

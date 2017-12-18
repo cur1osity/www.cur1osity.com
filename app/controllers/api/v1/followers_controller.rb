@@ -28,9 +28,13 @@ class Api::V1::FollowersController < Api::V1::BaseController
   def load_resource
     case params[:action].to_sym
     when :index
-      @followers = paginate(
-        apply_filters(User.find(params[:user_id]).followers, params)
-      )
+  #    @followers = paginate(
+  #      apply_filters(User.find(params[:user_id]).followers, params)
+  #    )
+
+       @followers = User.find(params[:user_id]).followers
+
+
     when :destroy
       @relationship = Relationship.find_by!(
         followed_id: params[:user_id],

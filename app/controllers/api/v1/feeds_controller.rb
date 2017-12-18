@@ -14,7 +14,8 @@ class Api::V1::FeedsController < Api::V1::BaseController
     def load_resource
       case params[:action].to_sym
       when :show
-        @feed = paginate(User.find(params[:user_id]).feed)
+        @feed = User.find(params[:user_id]).feed
+     #   @feed = paginate(User.find(params[:user_id]).feed)
       end
     end
 end

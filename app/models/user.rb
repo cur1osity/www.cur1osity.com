@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   mount_uploader :picture, PictureUploader
   validate  :picture_size
-  attr_accessor :remember_token, :activation_token, :reset_token
+  attr_accessor :remember_token, :activation_token, :reset_token, :api_token
   before_validation :ensure_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -80,6 +80,27 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # API token and token_digest
+
+   # Sets the API token attributes.
+  def create_api_digest
+    self.api_token = User.new_token
+    update_attribute(:token_digest,  User.digest(api_token))
+    update_attribute(:token_sent_at, Time.zone.now)
+  end
+
+ # Sends API token email.
+  def send_api_token_email
+    UserMailer.api_token(self).deliver_now
+  end
+
+  #Retrun true and allow to use API for registred users 
+   def api_token_authenticated?(token_digest, token)
+    return false if token_digest.nil?
+    BCrypt::Password.new(token_digest).is_password?(token)
+  end
+
+
   def feed
     following_ids = "SELECT followed_id FROM relationships
                      WHERE  follower_id = :user_id"
@@ -115,21 +136,14 @@ class User < ApplicationRecord
       self.activation_digest = User.digest(activation_token)
     end
 
-     def ensure_token
-      self.token = generate_hex(:token) unless token.present?
-    end
-
-    def generate_hex(column)
-      loop do
-        hex = SecureRandom.hex
-        break hex unless self.class.where(column => hex).any?
-      end
-    end
-
     # Validates the size of an uploaded picture.
     def picture_size
       if picture.size > 1.megabytes
         errors.add(:picture, "should be less than 1MB")
       end
+    end
+
+    def ensure_token
+      
     end
 end
