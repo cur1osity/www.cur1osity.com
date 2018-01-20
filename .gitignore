@@ -27,3 +27,5 @@
 # ignore dotenv
 
 .env
+
+/bfg.jar
