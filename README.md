@@ -16,7 +16,7 @@ Alternatively you can use [Docker](www.docker.com). Install docker CE from https
 
 ### Installing
 
-For linux installation - download app and type in root folder:
+For Linux installation - download app and type in root folder:
 
 ```
 bundle update
