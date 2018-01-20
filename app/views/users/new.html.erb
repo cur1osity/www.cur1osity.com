@@ -21,9 +21,9 @@
       <%= f.password_field :password_confirmation, placeholder: "Re-enter your password", class: 'form-control' %>
       <%= f.submit "Create my account", class: "btn btn-primary" %>
      
-     <div class ="captcha">
+     <div id ="captcha">
 
-<%= recaptcha_tags %>
+<%=  recaptcha_tags if Rails.env.production? %>
 
 </div>
 
