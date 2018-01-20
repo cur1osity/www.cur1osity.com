@@ -10,11 +10,13 @@ For Linux you could test it for example with cURL: curl -H 'Authorization: Token
 
 ### Prerequisites
 
-Install [Ruby](https://www.ruby-lang.org/pl/documentation/installation/) and [Rails](https://gorails.com/setup) 
+Install [Ruby](https://www.ruby-lang.org/pl/documentation/installation/) and [Rails](https://gorails.com/setup)
+
+Alternatively you can use [Docker](www.docker.com). Install docker CE from https://docs.docker.com/engine/installation/ 
 
 ### Installing
 
-Download app and type in root folder:
+For linux installation - download app and type in root folder:
 
 ```
 bundle update
@@ -29,3 +31,14 @@ You can login with:
 mail: example_user@example.com 
 pass: password
 ```
+For Docker - download app and type in root folder:
+
+```
+echo "FROM rails:onbuild" > Dockerfile
+docker build -t rails-demo .
+docker run --rm -p 3000:3000 rails-demo
+```
+and go to http://localhost:3000
+
+
+
