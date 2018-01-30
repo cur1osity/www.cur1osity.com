@@ -6,7 +6,11 @@ Backend partially based on [Michael Hartl's Rails tutorial](https://www.railstut
 
 In case of API you can register on page, activate and log-in then API-token key could be send to your email address after clicking on link (Account -> Send API token).
 
-For Linux you could test it for example with cURL: curl -H 'Authorization: Token token="your_API_token", email="your_email_address"' https://www.cur1osity.com/api/v1/users/
+For Linux you could test it for example with cURL:
+
+```
+curl -H 'Authorization: Token token="your_API_token", email="your_email_address"' https://www.cur1osity.com/api/v1/users/
+```
 
 ### Prerequisites
 
